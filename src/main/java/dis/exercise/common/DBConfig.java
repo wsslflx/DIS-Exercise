@@ -1,4 +1,4 @@
-package dis.exercise;
+package dis.exercise.common;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
