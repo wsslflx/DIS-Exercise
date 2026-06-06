@@ -11,7 +11,7 @@ import java.util.List;
 public class Task1d {
 
     private static final String CONNECTION_STRING =
-            "mongodb+srv://DIS-User:REMOVED@cluster38018.soysy5p.mongodb.net/";
+            EnvConfig.get("MONGO_URI");
 
     public static void run() {
         try (MongoClient client = MongoClients.create(CONNECTION_STRING)) {

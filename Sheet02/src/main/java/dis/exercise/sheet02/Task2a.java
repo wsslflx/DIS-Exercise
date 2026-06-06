@@ -15,7 +15,7 @@ import java.util.TreeSet;
 public class Task2a {
 
     private static final String MONGO_URI =
-            "mongodb+srv://DIS-User:REMOVED@cluster38018.soysy5p.mongodb.net/";
+            EnvConfig.get("MONGO_URI");
 
     public static void run() throws Exception {
         Set<String> soldCoffees = loadSoldCoffeeNames();

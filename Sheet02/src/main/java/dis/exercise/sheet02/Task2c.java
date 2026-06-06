@@ -16,7 +16,7 @@ import java.util.TreeMap;
 public class Task2c {
 
     private static final String MONGO_URI =
-            "mongodb+srv://DIS-User:REMOVED@cluster38018.soysy5p.mongodb.net/";
+            EnvConfig.get("MONGO_URI");
 
     public static void run() throws Exception {
 
