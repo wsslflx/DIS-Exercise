@@ -21,21 +21,21 @@ public class TaskB {
         // ── Step ii) ──────────────────────────────────────────────────────────
         // Create a new table and insert one tuple.
         try (Statement s = connA.createStatement()) {
-            s.execute("DROP TABLE IF EXISTS concurrent_test");
+            s.execute("DROP TABLE IF EXISTS test_table1");
             s.execute("""
-                CREATE TABLE concurrent_test (
+                CREATE TABLE test_table1 (
                     id    SERIAL PRIMARY KEY,
                     value VARCHAR(50) NOT NULL
                 )
             """);
-            s.execute("INSERT INTO concurrent_test (value) VALUES ('initial')");
+            s.execute("INSERT INTO test_table1 (value) VALUES ('initial')");
             connA.commit();
         }
         System.out.println("[A] Table created and initial tuple inserted.");
 
         // Print current table contents
         try (Statement s = connA.createStatement();
-             ResultSet rs = s.executeQuery("SELECT id, value FROM concurrent_test")) {
+             ResultSet rs = s.executeQuery("SELECT id, value FROM test_table1")) {
             System.out.println("Table contents:");
             while (rs.next()) {
                 System.out.printf("  id=%-3d value=%s%n", rs.getInt("id"), rs.getString("value"));
@@ -62,7 +62,7 @@ public class TaskB {
         // ── Step v) ───────────────────────────────────────────────────────────
         // Use connection A to insert a new record.
         try (PreparedStatement ps = connA.prepareStatement(
-                "INSERT INTO concurrent_test (value) VALUES (?)")) {
+                "INSERT INTO test_table1 (value) VALUES (?)")) {
             ps.setString(1, "inserted_by_A");
             ps.executeUpdate();
         }
@@ -71,7 +71,7 @@ public class TaskB {
         // ── Step vi) ──────────────────────────────────────────────────────────
         // Use connection B to insert a different record.
         try (PreparedStatement ps = connB.prepareStatement(
-                "INSERT INTO concurrent_test (value) VALUES (?)")) {
+                "INSERT INTO test_table1 (value) VALUES (?)")) {
             ps.setString(1, "inserted_by_B");
             ps.executeUpdate();
         }
@@ -126,7 +126,7 @@ public class TaskB {
         Thread threadA = new Thread(() -> {
             try {
                 try (PreparedStatement ps = connA.prepareStatement(
-                        "UPDATE concurrent_test SET value = ? WHERE id = 1")) {
+                        "UPDATE test_table1 SET value = ? WHERE id = 1")) {
                     ps.setString(1, "updated_by_A");
                     ps.executeUpdate();
                 }
@@ -151,7 +151,7 @@ public class TaskB {
                 aUpdated.await(); // ensure A updates first so we can see the block
                 System.out.println("[B] Attempting UPDATE on id=1 — blocking until A commits...");
                 try (PreparedStatement ps = connB.prepareStatement(
-                        "UPDATE concurrent_test SET value = ? WHERE id = 1")) {
+                        "UPDATE test_table1 SET value = ? WHERE id = 1")) {
                     ps.setString(1, "updated_by_B");
                     ps.executeUpdate(); // blocks here until A commits
                 }
@@ -190,7 +190,7 @@ public class TaskB {
 
     private static void printTable(Connection conn) throws SQLException {
         try (Statement s = conn.createStatement();
-             ResultSet rs = s.executeQuery("SELECT id, value FROM concurrent_test ORDER BY id")) {
+             ResultSet rs = s.executeQuery("SELECT id, value FROM test_table1 ORDER BY id")) {
             System.out.printf("  %-4s | %-20s%n", "id", "value");
             System.out.println("  -----|---------------------");
             while (rs.next()) {

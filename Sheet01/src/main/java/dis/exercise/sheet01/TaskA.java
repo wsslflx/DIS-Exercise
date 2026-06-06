@@ -54,7 +54,7 @@ public class TaskA {
     }
 
     private static void transferBalance(Connection conn, int fromId, int toId, double amount) throws SQLException {
-        conn.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
+        conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
         try {
             double balance;
             try (PreparedStatement ps = conn.prepareStatement("SELECT balance FROM accounts WHERE id = ?")) {
