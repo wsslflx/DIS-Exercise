@@ -122,7 +122,6 @@ def _load_ingredient_df(ingredient):
 
 class GridSearchWorker(QObject):
     finished = pyqtSignal(float, float, float)
-    status   = pyqtSignal(str)
     error    = pyqtSignal(str)
 
     def __init__(self, eval_days):
@@ -131,11 +130,8 @@ class GridSearchWorker(QObject):
 
     def run(self):
         try:
-            self.status.emit('Grid search: loading data…')
             series = _load_drink_series(self.eval_days)
             values = np.round(np.arange(0.1, 1.0, 0.1), 6)
-            n_combos = len(values) ** 3
-            self.status.emit(f'Grid search: {n_combos} combinations × {len(series)} drinks…')
 
             all_best = []
             for drink, (train, actual) in series.items():
@@ -152,9 +148,6 @@ class GridSearchWorker(QObject):
                                 continue
                 if best:
                     all_best.append(best)
-                    self.status.emit(
-                        f'{drink}: α={best[0]:.2f} β={best[1]:.2f} '
-                        f'γ={best[2]:.2f}  RMSE={best_rmse:.3f}')
 
             avg = np.array(all_best).mean(axis=0)
             self.finished.emit(float(avg[0]), float(avg[1]), float(avg[2]))
@@ -164,7 +157,6 @@ class GridSearchWorker(QObject):
 
 class ForecastWorker(QObject):
     finished = pyqtSignal()
-    status   = pyqtSignal(str)
     error    = pyqtSignal(str)
 
     def __init__(self, alpha, beta, gamma, horizon, eval_days):
@@ -189,9 +181,7 @@ class ForecastWorker(QObject):
             proc = subprocess.Popen(cmd, cwd=SCRIPT_DIR,
                                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                     text=True)
-            for line in proc.stdout:
-                self.status.emit(line.rstrip())
-            proc.wait()
+            proc.communicate()
             if proc.returncode == 0:
                 self.finished.emit()
             else:
@@ -259,9 +249,6 @@ class MainWindow(QMainWindow):
         plot_row.addWidget(self.canvas_future)
         root.addLayout(plot_row)
 
-        # ── Status bar ─────────────────────────────────────────────────────────
-        self.statusBar().showMessage('Ready — set parameters and click Run Forecast.')
-
     @staticmethod
     def _make_canvas():
         fig    = Figure(figsize=(6, 3.8), tight_layout=True)
@@ -282,8 +269,6 @@ class MainWindow(QMainWindow):
         self.f_alpha.setText(f'{alpha:.2f}')
         self.f_beta.setText(f'{beta:.2f}')
         self.f_gamma.setText(f'{gamma:.2f}')
-        self.statusBar().showMessage(
-            f'Grid search done — best params: α={alpha:.2f}  β={beta:.2f}  γ={gamma:.2f}')
 
     def _run_forecast(self):
         alpha   = self._float(self.f_alpha,   0.3)
@@ -322,7 +307,6 @@ class MainWindow(QMainWindow):
             params = f'α={alpha}  β={beta}  γ={gamma}  (season=7, additive TES)'
             self._draw_eval(df, ingredient, params)
             self._draw_future(df, ingredient, params)
-            self.statusBar().showMessage(f'Showing: {ingredient}')
         except Exception as e:
             self._on_error(str(e))
 
@@ -332,7 +316,6 @@ class MainWindow(QMainWindow):
         thread = QThread()
         worker.moveToThread(thread)
         thread.started.connect(worker.run)
-        worker.status.connect(self.statusBar().showMessage)
         worker.error.connect(self._on_error)
         on_done_signal.connect(on_finished)
         on_done_signal.connect(thread.quit)
@@ -343,7 +326,6 @@ class MainWindow(QMainWindow):
 
     def _on_error(self, msg):
         self._set_busy(False)
-        self.statusBar().showMessage(f'Error: {msg}')
         QMessageBox.critical(self, 'Error', msg)
 
     def _set_busy(self, busy):
