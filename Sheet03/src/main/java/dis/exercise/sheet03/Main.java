@@ -123,9 +123,9 @@ public class Main {
                 double[] fc    = evalForecasts.get(drink);
                 for (int i = 0; i < dates.size(); i++) {
                     String forecastCol = (fc != null && i >= trainEnd)
-                            ? String.format("%.4f", fc[i - trainEnd])
+                            ? String.format(Locale.ROOT, "%.4f", fc[i - trainEnd])
                             : "";
-                    w.printf("%s,%s,%.0f,%s%n", dates.get(i), drink, full[i], forecastCol);
+                    w.printf(Locale.ROOT, "%s,%s,%.0f,%s%n", dates.get(i), drink, full[i], forecastCol);
                 }
             }
         }
@@ -145,13 +145,13 @@ public class Main {
 
                 // Historical rows
                 for (int i = 0; i < dates.size(); i++) {
-                    w.printf("%s,%s,%.0f,%n", dates.get(i), drink, full[i]);
+                    w.printf(Locale.ROOT, "%s,%s,%.0f,%n", dates.get(i), drink, full[i]);
                 }
                 // Future rows
                 if (fc != null) {
                     LocalDate last = dates.get(dates.size() - 1);
                     for (int h = 1; h <= horizon; h++) {
-                        w.printf("%s,%s,,%.4f%n", last.plusDays(h), drink, fc[h - 1]);
+                        w.printf(Locale.ROOT, "%s,%s,,%.4f%n", last.plusDays(h), drink, fc[h - 1]);
                     }
                 }
             }
