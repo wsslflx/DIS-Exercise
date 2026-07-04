@@ -357,36 +357,36 @@ date,drink,actual,eval_forecast
 2025-02-19,Americano,6,
 2025-02-20,Americano,8,
 2025-02-21,Americano,11,
-2025-02-22,Americano,2,13,3895
-2025-02-23,Americano,1,15,8160
-2025-02-24,Americano,3,21,4205
-2025-02-25,Americano,5,21,6443
-2025-02-26,Americano,5,24,5898
-2025-02-27,Americano,5,25,2535
-2025-02-28,Americano,7,28,6112
-2025-03-01,Americano,4,31,5513
-2025-03-02,Americano,2,33,9779
-2025-03-03,Americano,4,39,5824
-2025-03-04,Americano,9,39,8061
-2025-03-05,Americano,6,42,7517
-2025-03-06,Americano,3,43,4153
-2025-03-07,Americano,4,46,7730
-2025-03-08,Americano,4,49,7132
-2025-03-09,Americano,2,52,1398
-2025-03-10,Americano,4,57,7443
-2025-03-11,Americano,4,57,9680
-2025-03-12,Americano,6,60,9136
-2025-03-13,Americano,3,61,5772
-2025-03-14,Americano,10,64,9349
-2025-03-15,Americano,1,67,8751
-2025-03-16,Americano,1,70,3017
-2025-03-17,Americano,6,75,9062
-2025-03-18,Americano,3,76,1299
-2025-03-19,Americano,8,79,0755
-2025-03-20,Americano,8,79,7391
-2025-03-21,Americano,7,83,0968
-2025-03-22,Americano,2,86,0370
-2025-03-23,Americano,1,88,4635
+2025-02-22,Americano,2,
+2025-02-23,Americano,1,
+2025-02-24,Americano,3,
+2025-02-25,Americano,5,
+2025-02-26,Americano,5,
+2025-02-27,Americano,5,
+2025-02-28,Americano,7,
+2025-03-01,Americano,4,
+2025-03-02,Americano,2,
+2025-03-03,Americano,4,
+2025-03-04,Americano,9,
+2025-03-05,Americano,6,
+2025-03-06,Americano,3,
+2025-03-07,Americano,4,
+2025-03-08,Americano,4,
+2025-03-09,Americano,2,
+2025-03-10,Americano,4,7,2029
+2025-03-11,Americano,4,8,7201
+2025-03-12,Americano,6,7,7060
+2025-03-13,Americano,3,5,8401
+2025-03-14,Americano,10,6,8212
+2025-03-15,Americano,1,4,9336
+2025-03-16,Americano,1,4,6216
+2025-03-17,Americano,6,9,3806
+2025-03-18,Americano,3,10,8978
+2025-03-19,Americano,8,9,8838
+2025-03-20,Americano,8,8,0178
+2025-03-21,Americano,7,8,9990
+2025-03-22,Americano,2,7,1114
+2025-03-23,Americano,1,6,7994
 2024-03-01,Hot Chocolate,3,
 2024-03-02,Hot Chocolate,0,
 2024-03-03,Hot Chocolate,2,
@@ -745,25 +745,25 @@ date,drink,actual,eval_forecast
 2025-02-19,Hot Chocolate,2,
 2025-02-20,Hot Chocolate,2,
 2025-02-21,Hot Chocolate,1,
-2025-02-22,Hot Chocolate,1,1,2278
-2025-02-23,Hot Chocolate,0,1,6228
-2025-02-24,Hot Chocolate,1,1,3527
-2025-02-25,Hot Chocolate,0,1,4140
-2025-02-26,Hot Chocolate,3,1,7359
-2025-02-27,Hot Chocolate,0,0,5815
-2025-02-28,Hot Chocolate,0,0,6205
-2025-03-01,Hot Chocolate,0,0,5111
-2025-03-02,Hot Chocolate,0,0,9061
-2025-03-03,Hot Chocolate,5,0,6361
-2025-03-04,Hot Chocolate,0,0,6974
-2025-03-05,Hot Chocolate,1,1,0193
-2025-03-06,Hot Chocolate,1,0,0000
-2025-03-07,Hot Chocolate,3,0,0000
-2025-03-08,Hot Chocolate,0,0,0000
-2025-03-09,Hot Chocolate,0,0,1895
-2025-03-10,Hot Chocolate,3,0,0000
+2025-02-22,Hot Chocolate,1,
+2025-02-23,Hot Chocolate,0,
+2025-02-24,Hot Chocolate,1,
+2025-02-25,Hot Chocolate,0,
+2025-02-26,Hot Chocolate,3,
+2025-02-27,Hot Chocolate,0,
+2025-02-28,Hot Chocolate,0,
+2025-03-01,Hot Chocolate,0,
+2025-03-02,Hot Chocolate,0,
+2025-03-03,Hot Chocolate,5,
+2025-03-04,Hot Chocolate,0,
+2025-03-05,Hot Chocolate,1,
+2025-03-06,Hot Chocolate,1,
+2025-03-07,Hot Chocolate,3,
+2025-03-08,Hot Chocolate,0,
+2025-03-09,Hot Chocolate,0,
+2025-03-10,Hot Chocolate,3,1,5808
 2025-03-11,Hot Chocolate,2,0,0000
-2025-03-12,Hot Chocolate,1,0,3026
+2025-03-12,Hot Chocolate,1,0,1406
 2025-03-13,Hot Chocolate,0,0,0000
 2025-03-14,Hot Chocolate,0,0,0000
 2025-03-15,Hot Chocolate,0,0,0000
@@ -1133,32 +1133,32 @@ date,drink,actual,eval_forecast
 2025-02-19,Americano with Milk,2,
 2025-02-20,Americano with Milk,1,
 2025-02-21,Americano with Milk,1,
-2025-02-22,Americano with Milk,1,0,3722
-2025-02-23,Americano with Milk,3,0,0000
-2025-02-24,Americano with Milk,7,1,6773
-2025-02-25,Americano with Milk,2,0,0000
-2025-02-26,Americano with Milk,3,0,0000
-2025-02-27,Americano with Milk,1,0,0000
-2025-02-28,Americano with Milk,4,0,0000
-2025-03-01,Americano with Milk,1,0,0000
-2025-03-02,Americano with Milk,2,0,0000
-2025-03-03,Americano with Milk,2,0,0000
-2025-03-04,Americano with Milk,2,0,0000
-2025-03-05,Americano with Milk,3,0,0000
-2025-03-06,Americano with Milk,3,0,0000
-2025-03-07,Americano with Milk,3,0,0000
-2025-03-08,Americano with Milk,3,0,0000
-2025-03-09,Americano with Milk,2,0,0000
-2025-03-10,Americano with Milk,3,0,0000
-2025-03-11,Americano with Milk,1,0,0000
-2025-03-12,Americano with Milk,1,0,0000
-2025-03-13,Americano with Milk,4,0,0000
-2025-03-14,Americano with Milk,1,0,0000
-2025-03-15,Americano with Milk,3,0,0000
-2025-03-16,Americano with Milk,1,0,0000
-2025-03-17,Americano with Milk,1,0,0000
-2025-03-18,Americano with Milk,3,0,0000
-2025-03-19,Americano with Milk,2,0,0000
+2025-02-22,Americano with Milk,1,
+2025-02-23,Americano with Milk,3,
+2025-02-24,Americano with Milk,7,
+2025-02-25,Americano with Milk,2,
+2025-02-26,Americano with Milk,3,
+2025-02-27,Americano with Milk,1,
+2025-02-28,Americano with Milk,4,
+2025-03-01,Americano with Milk,1,
+2025-03-02,Americano with Milk,2,
+2025-03-03,Americano with Milk,2,
+2025-03-04,Americano with Milk,2,
+2025-03-05,Americano with Milk,3,
+2025-03-06,Americano with Milk,3,
+2025-03-07,Americano with Milk,3,
+2025-03-08,Americano with Milk,3,
+2025-03-09,Americano with Milk,2,
+2025-03-10,Americano with Milk,3,5,1872
+2025-03-11,Americano with Milk,1,3,4030
+2025-03-12,Americano with Milk,1,2,2818
+2025-03-13,Americano with Milk,4,1,3583
+2025-03-14,Americano with Milk,1,1,3333
+2025-03-15,Americano with Milk,3,0,4124
+2025-03-16,Americano with Milk,1,0,5740
+2025-03-17,Americano with Milk,1,2,9541
+2025-03-18,Americano with Milk,3,1,1699
+2025-03-19,Americano with Milk,2,0,0487
 2025-03-20,Americano with Milk,3,0,0000
 2025-03-21,Americano with Milk,2,0,0000
 2025-03-22,Americano with Milk,6,0,0000
@@ -1521,36 +1521,36 @@ date,drink,actual,eval_forecast
 2025-02-19,Cocoa,3,
 2025-02-20,Cocoa,1,
 2025-02-21,Cocoa,3,
-2025-02-22,Cocoa,0,1,0726
-2025-02-23,Cocoa,1,1,7149
-2025-02-24,Cocoa,5,2,1015
-2025-02-25,Cocoa,1,3,2459
-2025-02-26,Cocoa,1,1,9828
-2025-02-27,Cocoa,4,1,4316
-2025-02-28,Cocoa,1,2,4419
-2025-03-01,Cocoa,0,0,4917
-2025-03-02,Cocoa,1,1,1339
-2025-03-03,Cocoa,2,1,5206
-2025-03-04,Cocoa,2,2,6650
-2025-03-05,Cocoa,2,1,4019
-2025-03-06,Cocoa,1,0,8507
-2025-03-07,Cocoa,2,1,8610
-2025-03-08,Cocoa,0,0,0000
-2025-03-09,Cocoa,1,0,5530
-2025-03-10,Cocoa,1,0,9397
-2025-03-11,Cocoa,2,2,0841
-2025-03-12,Cocoa,2,0,8210
-2025-03-13,Cocoa,0,0,2697
-2025-03-14,Cocoa,3,1,2801
+2025-02-22,Cocoa,0,
+2025-02-23,Cocoa,1,
+2025-02-24,Cocoa,5,
+2025-02-25,Cocoa,1,
+2025-02-26,Cocoa,1,
+2025-02-27,Cocoa,4,
+2025-02-28,Cocoa,1,
+2025-03-01,Cocoa,0,
+2025-03-02,Cocoa,1,
+2025-03-03,Cocoa,2,
+2025-03-04,Cocoa,2,
+2025-03-05,Cocoa,2,
+2025-03-06,Cocoa,1,
+2025-03-07,Cocoa,2,
+2025-03-08,Cocoa,0,
+2025-03-09,Cocoa,1,
+2025-03-10,Cocoa,1,2,2779
+2025-03-11,Cocoa,2,1,9501
+2025-03-12,Cocoa,2,1,5157
+2025-03-13,Cocoa,0,1,4866
+2025-03-14,Cocoa,3,1,6292
 2025-03-15,Cocoa,0,0,0000
-2025-03-16,Cocoa,0,0,0000
-2025-03-17,Cocoa,2,0,3588
-2025-03-18,Cocoa,4,1,5031
-2025-03-19,Cocoa,1,0,2400
-2025-03-20,Cocoa,1,0,0000
-2025-03-21,Cocoa,0,0,6991
+2025-03-16,Cocoa,0,0,9203
+2025-03-17,Cocoa,2,2,1496
+2025-03-18,Cocoa,4,1,8218
+2025-03-19,Cocoa,1,1,3873
+2025-03-20,Cocoa,1,1,3583
+2025-03-21,Cocoa,0,1,5009
 2025-03-22,Cocoa,1,0,0000
-2025-03-23,Cocoa,2,0,0000
+2025-03-23,Cocoa,2,0,7920
 2024-03-01,Latte,2,
 2024-03-02,Latte,0,
 2024-03-03,Latte,1,
@@ -1909,36 +1909,36 @@ date,drink,actual,eval_forecast
 2025-02-19,Latte,2,
 2025-02-20,Latte,2,
 2025-02-21,Latte,3,
-2025-02-22,Latte,0,3,8796
-2025-02-23,Latte,0,5,9378
-2025-02-24,Latte,5,7,9636
-2025-02-25,Latte,0,6,3700
-2025-02-26,Latte,4,7,7789
-2025-02-27,Latte,4,8,0783
-2025-02-28,Latte,3,9,1876
-2025-03-01,Latte,1,10,1355
-2025-03-02,Latte,1,12,1938
-2025-03-03,Latte,5,14,2195
-2025-03-04,Latte,2,12,6260
-2025-03-05,Latte,3,14,0348
-2025-03-06,Latte,1,14,3342
-2025-03-07,Latte,3,15,4435
-2025-03-08,Latte,0,16,3914
-2025-03-09,Latte,0,18,4497
-2025-03-10,Latte,5,20,4755
-2025-03-11,Latte,2,18,8819
-2025-03-12,Latte,4,20,2907
-2025-03-13,Latte,2,20,5901
-2025-03-14,Latte,7,21,6995
-2025-03-15,Latte,0,22,6473
-2025-03-16,Latte,1,24,7056
-2025-03-17,Latte,3,26,7314
-2025-03-18,Latte,4,25,1378
-2025-03-19,Latte,3,26,5466
-2025-03-20,Latte,1,26,8461
-2025-03-21,Latte,6,27,9554
-2025-03-22,Latte,1,28,9032
-2025-03-23,Latte,2,30,9615
+2025-02-22,Latte,0,
+2025-02-23,Latte,0,
+2025-02-24,Latte,5,
+2025-02-25,Latte,0,
+2025-02-26,Latte,4,
+2025-02-27,Latte,4,
+2025-02-28,Latte,3,
+2025-03-01,Latte,1,
+2025-03-02,Latte,1,
+2025-03-03,Latte,5,
+2025-03-04,Latte,2,
+2025-03-05,Latte,3,
+2025-03-06,Latte,1,
+2025-03-07,Latte,3,
+2025-03-08,Latte,0,
+2025-03-09,Latte,0,
+2025-03-10,Latte,5,3,7242
+2025-03-11,Latte,2,0,0000
+2025-03-12,Latte,4,0,3810
+2025-03-13,Latte,2,0,0000
+2025-03-14,Latte,7,0,0000
+2025-03-15,Latte,0,0,0000
+2025-03-16,Latte,1,0,0000
+2025-03-17,Latte,3,0,0000
+2025-03-18,Latte,4,0,0000
+2025-03-19,Latte,3,0,0000
+2025-03-20,Latte,1,0,0000
+2025-03-21,Latte,6,0,0000
+2025-03-22,Latte,1,0,0000
+2025-03-23,Latte,2,0,0000
 2024-03-01,Cortado,0,
 2024-03-02,Cortado,0,
 2024-03-03,Cortado,2,
@@ -2297,36 +2297,36 @@ date,drink,actual,eval_forecast
 2025-02-19,Cortado,0,
 2025-02-20,Cortado,0,
 2025-02-21,Cortado,0,
-2025-02-22,Cortado,0,0,0425
-2025-02-23,Cortado,0,0,0000
-2025-02-24,Cortado,0,0,0000
-2025-02-25,Cortado,0,0,0072
-2025-02-26,Cortado,1,0,0000
-2025-02-27,Cortado,0,0,0000
-2025-02-28,Cortado,0,0,0000
-2025-03-01,Cortado,0,0,0000
-2025-03-02,Cortado,0,0,0000
-2025-03-03,Cortado,0,0,0000
-2025-03-04,Cortado,0,0,0000
-2025-03-05,Cortado,0,0,0000
-2025-03-06,Cortado,0,0,0000
-2025-03-07,Cortado,0,0,0000
-2025-03-08,Cortado,0,0,0000
-2025-03-09,Cortado,0,0,0000
-2025-03-10,Cortado,0,0,0000
-2025-03-11,Cortado,0,0,0000
-2025-03-12,Cortado,0,0,0000
+2025-02-22,Cortado,0,
+2025-02-23,Cortado,0,
+2025-02-24,Cortado,0,
+2025-02-25,Cortado,0,
+2025-02-26,Cortado,1,
+2025-02-27,Cortado,0,
+2025-02-28,Cortado,0,
+2025-03-01,Cortado,0,
+2025-03-02,Cortado,0,
+2025-03-03,Cortado,0,
+2025-03-04,Cortado,0,
+2025-03-05,Cortado,0,
+2025-03-06,Cortado,0,
+2025-03-07,Cortado,0,
+2025-03-08,Cortado,0,
+2025-03-09,Cortado,0,
+2025-03-10,Cortado,0,0,1089
+2025-03-11,Cortado,0,0,2996
+2025-03-12,Cortado,0,0,1472
 2025-03-13,Cortado,0,0,0000
-2025-03-14,Cortado,0,0,0000
-2025-03-15,Cortado,0,0,0000
-2025-03-16,Cortado,0,0,0000
-2025-03-17,Cortado,0,0,0000
-2025-03-18,Cortado,0,0,0000
-2025-03-19,Cortado,1,0,0000
-2025-03-20,Cortado,1,0,0000
-2025-03-21,Cortado,0,0,0000
-2025-03-22,Cortado,0,0,0000
-2025-03-23,Cortado,0,0,0000
+2025-03-14,Cortado,0,0,0903
+2025-03-15,Cortado,0,0,1783
+2025-03-16,Cortado,0,0,0796
+2025-03-17,Cortado,0,0,2085
+2025-03-18,Cortado,0,0,3991
+2025-03-19,Cortado,1,0,2468
+2025-03-20,Cortado,1,0,0591
+2025-03-21,Cortado,0,0,1898
+2025-03-22,Cortado,0,0,2779
+2025-03-23,Cortado,0,0,1791
 2024-03-01,Espresso,0,
 2024-03-02,Espresso,0,
 2024-03-03,Espresso,0,
@@ -2685,36 +2685,36 @@ date,drink,actual,eval_forecast
 2025-02-19,Espresso,0,
 2025-02-20,Espresso,1,
 2025-02-21,Espresso,1,
-2025-02-22,Espresso,1,0,3876
-2025-02-23,Espresso,0,1,0679
-2025-02-24,Espresso,0,1,8731
-2025-02-25,Espresso,1,1,4826
-2025-02-26,Espresso,0,1,4729
-2025-02-27,Espresso,1,1,8626
-2025-02-28,Espresso,1,1,8599
-2025-03-01,Espresso,0,1,4108
-2025-03-02,Espresso,0,2,0911
-2025-03-03,Espresso,0,2,8963
-2025-03-04,Espresso,0,2,5057
-2025-03-05,Espresso,1,2,4961
-2025-03-06,Espresso,1,2,8857
-2025-03-07,Espresso,0,2,8830
-2025-03-08,Espresso,0,2,4339
-2025-03-09,Espresso,1,3,1142
-2025-03-10,Espresso,0,3,9194
-2025-03-11,Espresso,0,3,5289
-2025-03-12,Espresso,0,3,5192
-2025-03-13,Espresso,1,3,9089
-2025-03-14,Espresso,1,3,9062
-2025-03-15,Espresso,0,3,4571
-2025-03-16,Espresso,0,4,1374
-2025-03-17,Espresso,0,4,9425
-2025-03-18,Espresso,1,4,5520
-2025-03-19,Espresso,2,4,5424
-2025-03-20,Espresso,1,4,9320
-2025-03-21,Espresso,0,4,9293
-2025-03-22,Espresso,1,4,4802
-2025-03-23,Espresso,0,5,1605
+2025-02-22,Espresso,1,
+2025-02-23,Espresso,0,
+2025-02-24,Espresso,0,
+2025-02-25,Espresso,1,
+2025-02-26,Espresso,0,
+2025-02-27,Espresso,1,
+2025-02-28,Espresso,1,
+2025-03-01,Espresso,0,
+2025-03-02,Espresso,0,
+2025-03-03,Espresso,0,
+2025-03-04,Espresso,0,
+2025-03-05,Espresso,1,
+2025-03-06,Espresso,1,
+2025-03-07,Espresso,0,
+2025-03-08,Espresso,0,
+2025-03-09,Espresso,1,
+2025-03-10,Espresso,0,1,5055
+2025-03-11,Espresso,0,2,0376
+2025-03-12,Espresso,0,2,3282
+2025-03-13,Espresso,1,2,8079
+2025-03-14,Espresso,1,2,6891
+2025-03-15,Espresso,0,2,5964
+2025-03-16,Espresso,0,3,2056
+2025-03-17,Espresso,0,3,9923
+2025-03-18,Espresso,1,4,5244
+2025-03-19,Espresso,2,4,8150
+2025-03-20,Espresso,1,5,2947
+2025-03-21,Espresso,0,5,1759
+2025-03-22,Espresso,1,5,0832
+2025-03-23,Espresso,0,5,6924
 2024-03-01,Cappuccino,0,
 2024-03-02,Cappuccino,0,
 2024-03-03,Cappuccino,0,
@@ -3073,33 +3073,33 @@ date,drink,actual,eval_forecast
 2025-02-19,Cappuccino,5,
 2025-02-20,Cappuccino,4,
 2025-02-21,Cappuccino,3,
-2025-02-22,Cappuccino,0,4,4632
-2025-02-23,Cappuccino,1,3,5747
-2025-02-24,Cappuccino,1,5,5172
-2025-02-25,Cappuccino,3,4,7772
-2025-02-26,Cappuccino,1,7,9548
-2025-02-27,Cappuccino,4,6,4498
-2025-02-28,Cappuccino,1,6,9488
-2025-03-01,Cappuccino,2,7,8358
-2025-03-02,Cappuccino,0,6,9473
-2025-03-03,Cappuccino,4,8,8898
-2025-03-04,Cappuccino,1,8,1498
-2025-03-05,Cappuccino,3,11,3274
-2025-03-06,Cappuccino,2,9,8224
-2025-03-07,Cappuccino,2,10,3214
-2025-03-08,Cappuccino,1,11,2083
-2025-03-09,Cappuccino,2,10,3199
-2025-03-10,Cappuccino,1,12,2624
-2025-03-11,Cappuccino,2,11,5224
-2025-03-12,Cappuccino,3,14,6999
-2025-03-13,Cappuccino,2,13,1949
-2025-03-14,Cappuccino,1,13,6939
-2025-03-15,Cappuccino,3,14,5809
-2025-03-16,Cappuccino,1,13,6924
-2025-03-17,Cappuccino,1,15,6349
-2025-03-18,Cappuccino,0,14,8949
-2025-03-19,Cappuccino,3,18,0725
-2025-03-20,Cappuccino,4,16,5675
-2025-03-21,Cappuccino,4,17,0665
-2025-03-22,Cappuccino,0,17,9535
-2025-03-23,Cappuccino,1,17,0650
+2025-02-22,Cappuccino,0,
+2025-02-23,Cappuccino,1,
+2025-02-24,Cappuccino,1,
+2025-02-25,Cappuccino,3,
+2025-02-26,Cappuccino,1,
+2025-02-27,Cappuccino,4,
+2025-02-28,Cappuccino,1,
+2025-03-01,Cappuccino,2,
+2025-03-02,Cappuccino,0,
+2025-03-03,Cappuccino,4,
+2025-03-04,Cappuccino,1,
+2025-03-05,Cappuccino,3,
+2025-03-06,Cappuccino,2,
+2025-03-07,Cappuccino,2,
+2025-03-08,Cappuccino,1,
+2025-03-09,Cappuccino,2,
+2025-03-10,Cappuccino,1,3,6538
+2025-03-11,Cappuccino,2,2,8636
+2025-03-12,Cappuccino,3,4,9484
+2025-03-13,Cappuccino,2,4,8179
+2025-03-14,Cappuccino,1,4,4497
+2025-03-15,Cappuccino,3,4,4957
+2025-03-16,Cappuccino,1,4,6169
+2025-03-17,Cappuccino,1,6,7258
+2025-03-18,Cappuccino,0,5,9356
+2025-03-19,Cappuccino,3,8,0204
+2025-03-20,Cappuccino,4,7,8899
+2025-03-21,Cappuccino,4,7,5217
+2025-03-22,Cappuccino,0,7,5677
+2025-03-23,Cappuccino,1,7,6889
