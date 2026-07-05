@@ -217,10 +217,12 @@ public class IngredientMapper {
         return result;
     }
 
-    /** Resolve ambiguous ingredient names. */
+    /** Resolve ambiguous or duplicate ingredient names. */
     private static String normalizeIngredient(String item) {
         // Cocoa recipe lists "Milk or water" — we assume Milk
         if (item.equalsIgnoreCase("Milk or water")) return "Milk";
+        // "Hot water" and "Water" are the same ingredient, just used at different temperatures
+        if (item.equalsIgnoreCase("Hot water")) return "Water";
         return item;
     }
 }
