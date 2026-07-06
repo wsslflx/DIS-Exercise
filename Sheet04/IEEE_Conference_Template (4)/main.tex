@@ -62,7 +62,35 @@ users can select an ingredient and adjust key model parameters like the three sm
 effect on the forecast.
 
 \section{System/Solution/Architecture Overview}
-Provide an overview of your solution. Use the figure you created for the last exercise sheet to explain your solution. You might adjust your figure to fit into the layout and to stay within the page limit. Include a short description of the forecasting approach you are using, ideally also providing a source.
+\label{sec:architecture}
+ 
+Figure~\ref{fig:architecture} gives an overview of the system architecture developed for this demo. The pipeline follows a multi-database design that reflects the heterogeneous nature of the underlying data: structured, transactional sales records on one side, and semi-structured, schema-flexible recipe data on the other.
+ 
+Historical per-cup sales transactions are stored in a \textbf{PostgreSQL} relational database, following the normalized schema. Ingredient recipes for each drink, which ingredients are required and in what quantity, are stored as documents in a hosted \textbf{MongoDB Atlas} cluster, since recipes are naturally nested and variable in structure (differing ingredient counts, units, and preparation steps per drink) and do not benefit from a fixed relational schema.
+ 
+The forecasting core is implemented in \textbf{Java~17}. On startup, a \texttt{DataLoader} component queries PostgreSQL for daily per-drink cup counts, filling any days without recorded sales with zero to obtain a contiguous daily time series per drink. Each series is then forecast independently using additive Triple Exponential Smoothing (Section~\ref{sec:tes}), producing both an evaluation forecast over a held-out period and a forecast for the days beyond the available data. An \texttt{IngredientMapper} component subsequently multiplies each drink's forecasted daily cup count by the corresponding ingredient quantities from the MongoDB recipes and aggregates the results across all drinks that share an ingredient (e.g., milk is used in lattes, cortados, and hot chocolate alike). The resulting ingredient-level forecasts, together with the actual historical amounts, are written back into an \texttt{ingredient\_forecast} table in PostgreSQL, keyed by date and ingredient.
+ 
+The graphical interface is implemented in \textbf{Python~3} using \texttt{PyQt5} for the UI and \texttt{matplotlib} for plotting, with \texttt{psycopg2} providing direct read access to the \texttt{ingredient\_forecast} table. This separation allows the interface to remain purely presentational: all forecasting and ingredient-mapping logic resides in the Java backend, while the GUI is responsible only for triggering a (re-)run of the Java forecasting jar with user-chosen parameters and for querying and rendering the persisted results. A grid search over $\alpha,\beta,\gamma \in \{0.1,\dots,0.9\}$, implemented in Python for rapid iteration, is offered as an alternative to manual parameter tuning; it re-runs the Holt-Winters computation in-memory for each parameter combination and each drink, selecting the combination that minimizes the root-mean-squared error against the held-out evaluation period.
+ 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{dis_architecture_v2}
+    \caption{Multi-database architecture: PostgreSQL stores structured sales data, MongoDB stores semi-structured recipes, the Java forecasting core connects both, and the Python/PyQt5 GUI visualizes the results.}
+    \label{fig:architecture}
+\end{figure}
+ 
+\subsection{Forecasting Approach}
+\label{sec:tes}
+ 
+Ingredient demand is derived from per-drink sales forecasts computed using \textbf{additive Triple Exponential Smoothing (Holt-Winters method)}, which decomposes each daily time series into a level, a trend, and a weekly (period $L=7$) seasonal component:
+\begin{align*}
+    l_t &= \alpha (y_t - s_{t-L}) + (1-\alpha)(l_{t-1} + b_{t-1}), \\
+    b_t &= \beta (l_t - l_{t-1}) + (1-\beta) b_{t-1}, \\
+    s_t &= \gamma (y_t - l_t) + (1-\gamma) s_{t-L},
+\end{align*}
+With the $h$-step-ahead forecast given by $\hat{y}_{n+h} = l_n + h b_n + s_{n+h-L\lceil h/L \rceil}$. Negative forecasts, which can occur for low-volume drinks, are clipped to zero since cup counts cannot be negative. Level and trend are initialized from the mean and zero, respectively over the first season, and the seasonal components are initialized as the deviation of each of the first $L$ observations from that mean.
+ 
+This method was chosen over simpler alternatives (e.g., a single or double exponential smoothing model, or a naive moving average) because coffee sales exhibit a clear and stable weekly cycle. Weekday versus weekend demand differs substantially for most drinks in the dataset,g in addition to a slower-moving trend over the observed year. Triple Exponential Smoothing captures both effects simultaneously with only three tunable parameters and closed-form update equations, making it well suited to a demo where users are meant to interactively adjust $\alpha$, $\beta$, and $\gamma$ and immediately observe the effect on the forecast, and where a grid search over the parameter space must remain computationally cheap. Its short-to-medium-term forecasting behavior is well documented in the forecasting literature~\cite{holt2004,gardner1985exponential,hyndman2018forecasting}, and it is widely used as a standard baseline for seasonal demand forecasting in retail and inventory settings, which matches the ingredient-ordering use case targeted by this demo.
 
 \section{Demonstration Proposal/Scenarios/Workflow}
 This section describes how users can experience our forecasting pipeline. User can fine-tune the model and see where the model behaves well as well as where its assumptions start to break down or find them automatically via a grid search
