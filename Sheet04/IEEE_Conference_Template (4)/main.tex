@@ -44,7 +44,21 @@ Insert a comma-separated list of keywords describing your demo, e.g. forecasting
 \end{IEEEkeywords}
 
 \section{Introduction}
-Write one or two paragraphs where you describe the problem you try to solve, explain why this is a problem, e.g., planning for purchases of ingredients, preservation of the shop's offer, or a more general explanation why forecasting makes sense in many scenarios. In the latter case, the coffee sales just act as an example. Give a short pitch of how you treat the challenge.
+Cafés and other small retailers face the challenge of how much of
+each ingredient should be ordered for the coming days or weeks. Ordering too
+little risks running out of popular products and disappointing
+customers while ordering too much leads to waste and higher cost.
+Accurate demand forecasting directly addresses this problem by
+estimating future ingredient consumption from historical sales patterns~\cite{hyndman2018forecasting}.
+
+Beyond the retail context, forecasting time-series data arises in a
+wide range of applications in short-to-medium-term predictions of business metrics like sales, revenue and demand planning~\cite{holt2004}. The coffee sales scenario used in this demo
+serves as an example of the methods around exponential smoothing~\cite{gardner1985exponential}. The project demonstrates how structured sales records and
+semi-structured recipe data can be combined in a multi-database
+architecture to result in a forecast of daily ingredient
+requirements. The system introduces a graphical user interface through which
+users can select an ingredient and adjust key model parameters like the three smoothing parameters $\alpha$, $\beta$, $\gamma$ and immediately observe their
+effect on the forecast.
 
 \section{System/Solution/Architecture Overview}
 Provide an overview of your solution. Use the figure you created for the last exercise sheet to explain your solution. You might adjust your figure to fit into the layout and to stay within the page limit. Include a short description of the forecasting approach you are using, ideally also providing a source.
