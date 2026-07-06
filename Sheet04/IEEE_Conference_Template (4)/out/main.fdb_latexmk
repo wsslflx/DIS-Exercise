@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1783365877.92083 "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/IEEE_Conference_Template (4)/main.tex" "out/main.pdf" "main" 1783365878.68676 0
-  "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/IEEE_Conference_Template (4)/main.tex" 1783365877.70211 12314 93440ddb9cbc669352dfbc5a867c5b47 ""
+["pdflatex"] 1783366844.28128 "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/IEEE_Conference_Template (4)/main.tex" "out/main.pdf" "main" 1783366845.06555 0
+  "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/IEEE_Conference_Template (4)/main.tex" 1783365890.47526 12314 93440ddb9cbc669352dfbc5a867c5b47 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -84,10 +84,10 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "IEEEtran.cls" 1783157318.20949 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
   "bib.tex" 1783365466.12493 579 b6d6068ec58581d571becb25e932e852 ""
-  "imgs/dis_architecture_v2.png" 1783364865.81403 48539 7fbabdb0161d3e4e0a7673b17cace010 ""
+  "imgs/dis_architecture_v2.png" 1783366843.80469 49487 4f790b9e41a2a115a48e3166029d4ef2 ""
   "imgs/gui_screenshot.png" 1783237999.65085 654835 40c026acf9a46ea00680a7582ec7ee7b ""
-  "main.tex" 1783365877.70211 12314 93440ddb9cbc669352dfbc5a867c5b47 ""
-  "out/main.aux" 1783365878.64473 1987 a78578a970ba74f5a74e6f0c03bed180 "pdflatex"
+  "main.tex" 1783365890.47526 12314 93440ddb9cbc669352dfbc5a867c5b47 ""
+  "out/main.aux" 1783366845.02283 1987 a78578a970ba74f5a74e6f0c03bed180 "pdflatex"
   (generated)
   "out/main.aux"
   "out/main.log"
