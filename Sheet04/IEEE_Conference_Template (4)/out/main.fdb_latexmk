@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1783323723.17869 "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/IEEE_Conference_Template (4)/main.tex" "out/main.pdf" "main" 1783323723.88874 0
-  "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/IEEE_Conference_Template (4)/main.tex" 1783323722.97562 6415 bf0ee487c543b69c892cdd6e90801e73 ""
+["pdflatex"] 1783365877.92083 "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/IEEE_Conference_Template (4)/main.tex" "out/main.pdf" "main" 1783365878.68676 0
+  "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/IEEE_Conference_Template (4)/main.tex" 1783365877.70211 12314 93440ddb9cbc669352dfbc5a867c5b47 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -33,8 +33,11 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb" 1136849748 45758 19968a0990191524e34e1994d4a31cb6 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
@@ -80,10 +83,11 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1757319223 3345732 3921be3e817e59596299cffd6ecc827a ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "IEEEtran.cls" 1783157318.20949 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "bib.tex" 1783323711.78812 581 e585f82d672f755a3f5fe412c91b82e4 ""
+  "bib.tex" 1783365466.12493 579 b6d6068ec58581d571becb25e932e852 ""
+  "imgs/dis_architecture_v2.png" 1783364865.81403 48539 7fbabdb0161d3e4e0a7673b17cace010 ""
   "imgs/gui_screenshot.png" 1783237999.65085 654835 40c026acf9a46ea00680a7582ec7ee7b ""
-  "main.tex" 1783323722.97562 6415 bf0ee487c543b69c892cdd6e90801e73 ""
-  "out/main.aux" 1783323723.85348 1326 71fcb83a01f3c0291b878275536c518e "pdflatex"
+  "main.tex" 1783365877.70211 12314 93440ddb9cbc669352dfbc5a867c5b47 ""
+  "out/main.aux" 1783365878.64473 1987 a78578a970ba74f5a74e6f0c03bed180 "pdflatex"
   (generated)
   "out/main.aux"
   "out/main.log"

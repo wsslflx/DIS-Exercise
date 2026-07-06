@@ -15,33 +15,33 @@
 
 \title{Demo Paper Title}
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-\IEEEauthorblockA{\textit{Department of Informatics (or whatever your department is)} \\
+\author{\IEEEauthorblockN{1\textsuperscript{st} Sebastian Lieb}
+\IEEEauthorblockA{\textit{Institute of Information Systems} \\
 \textit{Universität Hamburg}\\
 Hamburg, Germany \\
-email address or ORCID}
+Sebastian.Lieb@studium.uni-hamburg.de}
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-\IEEEauthorblockA{\textit{Department of Informatics (or whatever your department is)} \\
+\IEEEauthorblockN{2\textsuperscript{nd} Timur Varli}
+\IEEEauthorblockA{\textit{Department of Informatics} \\
 \textit{Universität Hamburg}\\
 Hamburg, Germany \\
-email address or ORCID}
+timur.varli@studium.uni-hamburg.de}
 \and
-\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-\IEEEauthorblockA{\textit{Department of Informatics (or whatever your department is)} \\
+\IEEEauthorblockN{3\textsuperscript{rd} Felix Wissel}
+\IEEEauthorblockA{\textit{Department of Informatics} \\
 \textit{Universität Hamburg}\\
 Hamburg, Germany \\
-email address or ORCID}
+felix.wissel@studium.uni-hamburg.de}
 }
 
 \maketitle
 
 \begin{abstract}
-Write a short abstract about your demo paper: What will you show and why is this important?
+Small retailers such as cafés must repeatedly decide how much of each ingredient to purchase, balancing the risk of running out of popular items against the cost of over-ordering perishable stock. We present an interactive demo that forecasts daily ingredient demand for a café by combining structured per-cup sales records from PostgreSQL with semi-structured recipe data from MongoDB in a multi-database pipeline. Drink-level sales are forecast independently using additive Triple Exponential Smoothing and mapped to ingredient quantities through the recipe database, aggregating over all drinks that share an ingredient. Through a graphical interface, visitors can manually tune the model's smoothing parameters or let a grid search select them automatically, then inspect the resulting forecasts for individual ingredients across both a held-out evaluation period and the days beyond the available data. Beyond producing plausible purchasing forecasts, the demo lets visitors directly compare ingredients that draw on many drinks against ones that depend on only one or two, exposing firsthand how this difference affects forecast stability, and more generally where a common forecasting method remains reliable and where its assumptions break down.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Insert a comma-separated list of keywords describing your demo, e.g. forecasting, time series, the name of your method,...
+time series forecasting, Holt-Winters, exponential smoothing, demand forecasting, PostgreSQL, MongoDB
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -53,8 +53,8 @@ Accurate demand forecasting directly addresses this problem by
 estimating future ingredient consumption from historical sales patterns~\cite{hyndman2018forecasting}.
 
 Beyond the retail context, forecasting time-series data arises in a
-wide range of applications in short-to-medium-term predictions of business metrics like sales, revenue and demand planning~\cite{holt2004}. The coffee sales scenario used in this demo
-serves as an example of the methods around exponential smoothing~\cite{gardner1985exponential}. The project demonstrates how structured sales records and
+wide range of applications, including short-to-medium-term predictions of business metrics like sales, revenue and demand planning~\cite{holt2004}. The coffee sales scenario used in this demo
+serves as an example of the broader family of exponential smoothing methods~\cite{gardner1985exponential}. The project demonstrates how structured sales records and
 semi-structured recipe data can be combined in a multi-database
 architecture to result in a forecast of daily ingredient
 requirements. The system introduces a graphical user interface through which
@@ -66,7 +66,7 @@ effect on the forecast.
  
 Figure~\ref{fig:architecture} gives an overview of the system architecture developed for this demo. The pipeline follows a multi-database design that reflects the heterogeneous nature of the underlying data: structured, transactional sales records on one side, and semi-structured, schema-flexible recipe data on the other.
  
-Historical per-cup sales transactions are stored in a \textbf{PostgreSQL} relational database, following the normalized schema. Ingredient recipes for each drink, which ingredients are required and in what quantity, are stored as documents in a hosted \textbf{MongoDB Atlas} cluster, since recipes are naturally nested and variable in structure (differing ingredient counts, units, and preparation steps per drink) and do not benefit from a fixed relational schema.
+Historical per-cup sales transactions are stored in a \textbf{PostgreSQL} relational database, following a normalized schema. Ingredient recipes for each drink, which ingredients are required and in what quantity, are stored as documents in a hosted \textbf{MongoDB Atlas} cluster, since recipes are naturally nested and variable in structure (differing ingredient counts, units, and preparation steps per drink) and do not benefit from a fixed relational schema.
  
 The forecasting core is implemented in \textbf{Java~17}. On startup, a \texttt{DataLoader} component queries PostgreSQL for daily per-drink cup counts, filling any days without recorded sales with zero to obtain a contiguous daily time series per drink. Each series is then forecast independently using additive Triple Exponential Smoothing (Section~\ref{sec:tes}), producing both an evaluation forecast over a held-out period and a forecast for the days beyond the available data. An \texttt{IngredientMapper} component subsequently multiplies each drink's forecasted daily cup count by the corresponding ingredient quantities from the MongoDB recipes and aggregates the results across all drinks that share an ingredient (e.g., milk is used in lattes, cortados, and hot chocolate alike). The resulting ingredient-level forecasts, together with the actual historical amounts, are written back into an \texttt{ingredient\_forecast} table in PostgreSQL, keyed by date and ingredient.
  
@@ -74,7 +74,7 @@ The graphical interface is implemented in \textbf{Python~3} using \texttt{PyQt5}
  
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\linewidth]{dis_architecture_v2}
+    \includegraphics[width=\linewidth]{dis_architecture_v2.png}
     \caption{Multi-database architecture: PostgreSQL stores structured sales data, MongoDB stores semi-structured recipes, the Java forecasting core connects both, and the Python/PyQt5 GUI visualizes the results.}
     \label{fig:architecture}
 \end{figure}
@@ -88,12 +88,12 @@ Ingredient demand is derived from per-drink sales forecasts computed using \text
     b_t &= \beta (l_t - l_{t-1}) + (1-\beta) b_{t-1}, \\
     s_t &= \gamma (y_t - l_t) + (1-\gamma) s_{t-L},
 \end{align*}
-With the $h$-step-ahead forecast given by $\hat{y}_{n+h} = l_n + h b_n + s_{n+h-L\lceil h/L \rceil}$. Negative forecasts, which can occur for low-volume drinks, are clipped to zero since cup counts cannot be negative. Level and trend are initialized from the mean and zero, respectively over the first season, and the seasonal components are initialized as the deviation of each of the first $L$ observations from that mean.
+The $h$-step-ahead forecast is then given by $\hat{y}_{n+h} = l_n + h b_n + s_{n+h-L\lceil h/L \rceil}$. Negative forecasts, which can occur for low-volume drinks, are clipped to zero since cup counts cannot be negative. Level and trend are initialized from the mean over the first season and zero, respectively, and the seasonal components are initialized as the deviation of each of the first $L$ observations from that mean.
  
-This method was chosen over simpler alternatives (e.g., a single or double exponential smoothing model, or a naive moving average) because coffee sales exhibit a clear and stable weekly cycle. Weekday versus weekend demand differs substantially for most drinks in the dataset,g in addition to a slower-moving trend over the observed year. Triple Exponential Smoothing captures both effects simultaneously with only three tunable parameters and closed-form update equations, making it well suited to a demo where users are meant to interactively adjust $\alpha$, $\beta$, and $\gamma$ and immediately observe the effect on the forecast, and where a grid search over the parameter space must remain computationally cheap. Its short-to-medium-term forecasting behavior is well documented in the forecasting literature~\cite{holt2004,gardner1985exponential,hyndman2018forecasting}, and it is widely used as a standard baseline for seasonal demand forecasting in retail and inventory settings, which matches the ingredient-ordering use case targeted by this demo.
+This method was chosen over simpler alternatives (e.g., a single- or double-exponential-smoothing model, or a naive moving average) because coffee sales exhibit a clear and stable weekly cycle. Weekday versus weekend demand differs substantially for most drinks in the dataset, in addition to a slower-moving trend over the observed year. Triple Exponential Smoothing captures both effects simultaneously with only three tunable parameters and closed-form update equations, making it well suited to a demo where users are meant to interactively adjust $\alpha$, $\beta$, and $\gamma$ and immediately observe the effect on the forecast, and where a grid search over the parameter space must remain computationally cheap. Its short-to-medium-term forecasting behavior is well documented in the forecasting literature~\cite{holt2004,gardner1985exponential,hyndman2018forecasting}, and it is widely used as a standard baseline for seasonal demand forecasting in retail and inventory settings, which matches the ingredient-ordering use case targeted by this demo.
 
 \section{Demonstration Proposal/Scenarios/Workflow}
-This section describes how users can experience our forecasting pipeline. User can fine-tune the model and see where the model behaves well as well as where its assumptions start to break down or find them automatically via a grid search
+This section describes how users can experience our forecasting pipeline. Users can fine-tune the model manually or find suitable parameters automatically via a grid search, and see where the model behaves well as well as where its assumptions start to break down.
 \subsection{Setup}\label{subsec:setup}
 The demo runs on a laptop with an Apple Silicon M3 CPU and 16GB of RAM on macOS, however, the demo can also be run on less powerful hardware, given the moderate size of the dataset.
 The forecasting core is implemented in Java 17 and built with Maven into a self-contained jar. Historical sales are stored in PostgreSQL~16, while the ingredient recipes used to translate drink forecasts into ingredient quantities are kept in a hosted MongoDB Atlas cluster. 
@@ -104,16 +104,16 @@ A full grid search over the smoothing parameters $\alpha,\beta,\gamma$ at a step
 \begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{gui_screenshot.png}
-    \caption{The graphical interface showing model parameters, the ingredient, and the resulting evaluation and future forecast plots.}
+    \caption{The graphical interface showing model parameters, the ingredient selector, and the resulting evaluation and future forecast plots.}
     \label{fig:gui}
 \end{figure}
 Users can interact with the demo through a graphical interface (see Fig.~\ref{fig:gui}). 
-First, the user can select the parameter manually or run a grid search to find the best parameters for the forecasting model.
-Afterwards, the user can run the forecasting model and visualize the results for one ingredient. For the selected ingredient 2 plots are created, one comparing actual sales against the forecast for the held-out evaluation period, and one showing the forecast for the upcoming days beyond the available data.
-After the forecast is generated and without running the forecasting model again, the user can select another ingredient in a drop down menu and visualize the results for that ingredient.
+First, the user can select the parameters manually or run a grid search to find the best parameters for the forecasting model.
+Afterwards, the user can run the forecasting model and visualize the results for one ingredient. For the selected ingredient, two plots are created, one comparing actual sales against the forecast for the held-out evaluation period, and one showing the forecast for the upcoming days beyond the available data.
+After the forecast is generated and without running the forecasting model again, the user can select another ingredient in a drop-down menu and visualize the results for that ingredient.
 Visitors are also encouraged to compare ingredients that differ in how many drinks contribute to them. Ingredients drawn from several drinks tend to produce a stable forecast, since noise in any single drink's prediction is averaged out, whereas ingredients tied to only one or two drinks can inherit that drink's forecasting errors directly. This makes it possible to observe, within the same interface, both cases where the model performs convincingly and cases where its assumptions no longer hold.
 \subsection{Conclusion}
-The demo shows a complete path from raw, per-cup sales records to ingredient-level forecasts that could plausibly support purchasing decisions in a small coffee shop. Its particular value lies not in presenting a single polished result, but in letting visitors interactively expose the conditions under which a common forecasting method remains reliable and the conditions under which it does not, using the same pipeline and the same data throughout
+The demo shows a complete path from raw, per-cup sales records to ingredient-level forecasts that could plausibly support purchasing decisions in a small coffee shop. Its particular value lies not in presenting a single polished result, but in letting visitors interactively expose the conditions under which a common forecasting method remains reliable and the conditions under which it does not, using the same pipeline and the same data throughout.
 
 
 \input{bib.tex}
