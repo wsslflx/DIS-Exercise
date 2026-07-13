@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {I}Summary Rating}{1}{}%
+\contentsline {section}{\numberline {II}Strong points of the paper}{1}{}%
+\contentsline {section}{\numberline {III}Weak points of the paper}{1}{}%

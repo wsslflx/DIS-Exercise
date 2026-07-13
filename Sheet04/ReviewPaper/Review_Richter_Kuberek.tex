@@ -1,0 +1,81 @@
+%% Template for ENG 401 reports
+%% by Robin Turner
+%% Adapted from the IEEE peer review template
+
+%
+% note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+
+\documentclass[peerreview]{IEEEtran}
+\usepackage{cite} % Tidies up citation numbers.
+\usepackage{url} % Provides better formatting of URLs.
+\usepackage[utf8]{inputenc} % Allows Turkish characters.
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables for horizontal lines
+\usepackage{graphicx}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor} % Corrects some bad hyphenation 
+
+
+
+\begin{document}
+%\begin{titlepage}
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Review: Forecasting Coffee Shop Ingredient Usage with AR(2)}
+
+
+% author names and affiliations
+\date{13.07.2026}
+
+% make the title area
+\maketitle
+\tableofcontents
+%\end{titlepage}
+
+\IEEEpeerreviewmaketitle
+
+
+
+
+
+\section{Summary Rating}
+3 - weak accept 
+
+\section{Strong points of the paper}
+\begin{enumerate}
+    \item Clean and transparent architecture
+    \begin{itemize}
+        \item The paper clearly describes the architecture of the forecasting model, making it easy to understand.
+    \end{itemize}
+    \item Well communicated design choices
+    \begin{itemize}
+        \item The authors provide clear explanations for their design choices.
+        \item The authors do not oversell their approach and algorithm.
+    \end{itemize}
+\end{enumerate}
+
+\section{Weak points of the paper}
+\begin{enumerate}
+    \item Model Choice
+    \begin{itemize}
+        \item Choosing AR(2) as the forecasting model is quite obviously not the best choice for the problem.
+        \begin{itemize}
+            \item No trend
+            \item No seasonality
+        \end{itemize}
+    \end{itemize}
+    \item Reported Evaluation results
+    \begin{itemize}
+        \item Fig. 2 shows how badly the model is performing.
+        \item This is nice to see, in that the authors are not overselling their approach and algorithm; however, it should have been a tell to use a different approach.
+        \item The huge error is also not discussed enough in the paper.
+    \end{itemize}
+\end{enumerate}
+
+
+
+\end{document}
+
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.8)  6 JUL 2026 21:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.8)  6 JUL 2026 22:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -288,36 +288,30 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 71
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 1648) in paragraph at lines 73--74
-[]\OT1/ptm/m/n/10 The graph-i-cal in-ter-face is im-ple-mented in \OT1/ptm/b/n/10 Python 3
+Underfull \hbox (badness 2980) in paragraph at lines 73--74
+[]\OT1/ptm/m/n/10 The GUI is built in \OT1/ptm/b/n/10 Python 3 \OT1/ptm/m/n/10 us-ing \OT1/pcr/m/n/10 PyQt5 \OT1/ptm/m/n/10 and
  []
 
-
-Underfull \hbox (badness 2057) in paragraph at lines 73--74
-\OT1/ptm/m/n/10 us-ing \OT1/pcr/m/n/10 PyQt5 \OT1/ptm/m/n/10 for the UI and \OT1/pcr/m/n/10 matplotlib \OT1/ptm/m/n/10 for plot-
- []
-
-
-
-[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}
-
-
-]
-<imgs/dis_architecture_v2.png, id=14, 865.2325pt x 844.15375pt>
+<imgs/dis_architecture_v2.png, id=1, 865.2325pt x 844.15375pt>
 File: imgs/dis_architecture_v2.png Graphic file (type png)
 <use imgs/dis_architecture_v2.png>
 Package pdftex.def Info: imgs/dis_architecture_v2.png  used on input line 77.
 (pdftex.def)             Requested size: 252.0pt x 245.85454pt.
 
 
-<imgs/gui_screenshot.png, id=15, 1303.87125pt x 723.70375pt>
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}
+
+
+]
+
+<imgs/gui_screenshot.png, id=18, 1303.87125pt x 723.70375pt>
 File: imgs/gui_screenshot.png Graphic file (type png)
 <use imgs/gui_screenshot.png>
 Package pdftex.def Info: imgs/gui_screenshot.png  used on input line 106.
 (pdftex.def)             Requested size: 252.0pt x 139.8683pt.
+(./bib.tex
 
-
-[2 <./imgs/dis_architecture_v2.png (PNG copy)> <./imgs/gui_screenshot.png>] (./bib.tex)
+[2 <./imgs/dis_architecture_v2.png (PNG copy)> <./imgs/gui_screenshot.png>])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -342,15 +336,15 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4349 strings out of 473190
- 68134 string characters out of 5715801
- 476048 words of memory out of 5000000
- 27554 multiletter control sequences out of 15000+600000
+ 4352 strings out of 473190
+ 68219 string characters out of 5715801
+ 477048 words of memory out of 5000000
+ 27557 multiletter control sequences out of 15000+600000
  600181 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,1377b,336s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on out/main.pdf (3 pages, 565543 bytes).
+Output written on out/main.pdf (3 pages, 563468 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream
