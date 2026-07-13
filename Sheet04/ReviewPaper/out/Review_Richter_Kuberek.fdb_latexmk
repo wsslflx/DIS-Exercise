@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1783950050.49002 "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/ReviewPaper/Review_Richter_Kuberek.tex" "out/Review_Richter_Kuberek.pdf" "Review_Richter_Kuberek" 1783950050.82322 0
-  "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/ReviewPaper/Review_Richter_Kuberek.tex" 1783950050.10706 2298 0be9086cc8f40604aeefa777b5d306b7 ""
+["pdflatex"] 1783964978.45853 "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/ReviewPaper/Review_Richter_Kuberek.tex" "out/Review_Richter_Kuberek.pdf" "Review_Richter_Kuberek" 1783964978.75099 0
+  "/Users/felixwissel/Documents/Uni/Master/Databases/DIS-Exercise/Sheet04/ReviewPaper/Review_Richter_Kuberek.tex" 1783964978.27979 2234 badd5d3bc8e497579a0a8c45fba7fd2e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -36,12 +36,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1757319282 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1757319223 3345732 3921be3e817e59596299cffd6ecc827a ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Review_Richter_Kuberek.tex" 1783950050.10706 2298 0be9086cc8f40604aeefa777b5d306b7 ""
-  "out/Review_Richter_Kuberek.aux" 1783950050.79893 363 33dabb7659a25fe70bc670e6252a33e3 "pdflatex"
-  "out/Review_Richter_Kuberek.toc" 1783950050.79923 208 de1be1cd82aa457f8d596d4a99709fa0 "pdflatex"
+  "Review_Richter_Kuberek.tex" 1783964978.27979 2234 badd5d3bc8e497579a0a8c45fba7fd2e ""
+  "out/Review_Richter_Kuberek.aux" 1783964978.72915 363 e0d4a36a5101b4d24f75a9e84d0d8b47 "pdflatex"
   (generated)
   "out/Review_Richter_Kuberek.aux"
   "out/Review_Richter_Kuberek.log"
   "out/Review_Richter_Kuberek.pdf"
-  "out/Review_Richter_Kuberek.toc"
   (rewritten before read)
