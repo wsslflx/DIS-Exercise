@@ -14,19 +14,13 @@ import java.sql.Types;
 import java.time.LocalDate;
 import java.util.*;
 
-/**
- * Phase 2: maps forecasted drink counts to ingredient amounts using recipes
- * from MongoDB, then persists the results to PostgreSQL (ingredient_forecast).
- *
- * The "Milk or water" choice in the Cocoa recipe is resolved to "Milk".
- */
 public class IngredientMapper {
 
     private record IngredientAmount(String ingredient, double amount, String unit) {}
 
     /**
-     * @param conn            PostgreSQL connection (autoCommit=false)
-     * @param dates           historical dates (index 0..n-1)
+     * @param conn            PostgreSQL connection
+     * @param dates           historical dates
      * @param drinkSeries     actual cups per drink per historical day
      * @param evalForecasts   forecasted cups for the held-out eval period (per drink)
      * @param futureForecasts forecasted cups for future days beyond the dataset (per drink)
@@ -43,7 +37,6 @@ public class IngredientMapper {
 
         int n = dates.size();
 
-        // ── Load recipes from MongoDB ──────────────────────────────────────────
         Map<String, List<IngredientAmount>> recipes = loadRecipes();
         System.out.println("  Recipes loaded for: " + recipes.keySet());
 
@@ -56,7 +49,6 @@ public class IngredientMapper {
         }
         System.out.println("  Ingredients: " + ingredientUnits.keySet());
 
-        // ── Create table if it doesn't exist yet ──────────────────────────────
         try (Statement s = conn.createStatement()) {
             s.execute("""
                     CREATE TABLE IF NOT EXISTS ingredient_forecast (
@@ -72,9 +64,6 @@ public class IngredientMapper {
             conn.commit();
         }
 
-        // ── Helper: compute ingredient totals for one day's worth of cup counts
-        // result map: ingredient -> total amount
-        // ──────────────────────────────────────────────────────────────────────
 
         String insertSql = """
                 INSERT INTO ingredient_forecast
@@ -89,14 +78,11 @@ public class IngredientMapper {
 
         try (PreparedStatement ps = conn.prepareStatement(insertSql)) {
 
-            // ── Historical dates ───────────────────────────────────────────────
             for (int i = 0; i < n; i++) {
                 LocalDate date = dates.get(i);
 
-                // Actual amounts from real sales
                 Map<String, Double> actual = ingredientTotals(drinkSeries, i, recipes);
 
-                // Eval-forecast amounts only for the held-out period
                 Map<String, Double> evalFc = (i >= trainEnd)
                         ? ingredientTotalsFromForecast(evalForecasts, i - trainEnd, recipes)
                         : Collections.emptyMap();
@@ -109,12 +95,11 @@ public class IngredientMapper {
                     ps.setString(3, unit);
                     setNullableDouble(ps, 4, actual.get(ingName));
                     setNullableDouble(ps, 5, evalFc.get(ingName));
-                    ps.setNull(6, Types.NUMERIC); // no future forecast for historical dates
+                    ps.setNull(6, Types.NUMERIC);
                     ps.addBatch();
                 }
             }
 
-            // ── Future dates ───────────────────────────────────────────────────
             LocalDate lastDate = dates.get(n - 1);
             for (int h = 1; h <= horizon; h++) {
                 LocalDate futureDate = lastDate.plusDays(h);
@@ -142,9 +127,7 @@ public class IngredientMapper {
                 n, horizon, ingredientUnits.size());
     }
 
-    // ── Helpers ────────────────────────────────────────────────────────────────
-
-    /** Sum ingredient amounts across all drinks for one specific day index. */
+    // helpers
     private static Map<String, Double> ingredientTotals(
             Map<String, double[]> drinkSeries,
             int dayIndex,
@@ -159,7 +142,6 @@ public class IngredientMapper {
         return totals;
     }
 
-    /** Sum ingredient amounts across all drinks for one forecast step index. */
     private static Map<String, Double> ingredientTotalsFromForecast(
             Map<String, double[]> forecasts,
             int stepIndex,
@@ -179,7 +161,7 @@ public class IngredientMapper {
                                     double cups,
                                     Map<String, List<IngredientAmount>> recipes) {
         List<IngredientAmount> recipeItems = recipes.get(drink);
-        if (recipeItems == null) return; // no recipe found for this drink
+        if (recipeItems == null) return;
         for (IngredientAmount ia : recipeItems) {
             totals.merge(ia.ingredient(), cups * ia.amount(), Double::sum);
         }
@@ -190,8 +172,6 @@ public class IngredientMapper {
         if (value == null) ps.setNull(idx, Types.NUMERIC);
         else               ps.setDouble(idx, value);
     }
-
-    // ── MongoDB recipe loading ─────────────────────────────────────────────────
 
     private static Map<String, List<IngredientAmount>> loadRecipes() {
         Map<String, List<IngredientAmount>> result = new LinkedHashMap<>();
@@ -217,11 +197,8 @@ public class IngredientMapper {
         return result;
     }
 
-    /** Resolve ambiguous or duplicate ingredient names. */
     private static String normalizeIngredient(String item) {
-        // Cocoa recipe lists "Milk or water" — we assume Milk
         if (item.equalsIgnoreCase("Milk or water")) return "Milk";
-        // "Hot water" and "Water" are the same ingredient, just used at different temperatures
         if (item.equalsIgnoreCase("Hot water")) return "Water";
         return item;
     }

@@ -13,7 +13,6 @@ public class DataLoader {
      * sales for a given drink) with 0, producing a contiguous time series per drink.
      */
     public static DailyCounts load(Connection conn) throws SQLException {
-        // Raw counts keyed by date -> (drink -> cups)
         TreeMap<LocalDate, Map<String, Integer>> raw = new TreeMap<>();
         Set<String> drinks = new LinkedHashSet<>();
 
@@ -38,7 +37,6 @@ public class DataLoader {
 
         if (raw.isEmpty()) throw new IllegalStateException("No sales data found in coffee_sales.");
 
-        // Build a contiguous date list, filling missing days with 0
         LocalDate first = raw.firstKey();
         LocalDate last  = raw.lastKey();
         List<LocalDate> dates = new ArrayList<>();

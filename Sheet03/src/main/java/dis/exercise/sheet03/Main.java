@@ -45,7 +45,6 @@ public class Main {
         System.out.printf("Parameters: alpha=%.2f  beta=%.2f  gamma=%.2f  horizon=%d  eval=%d%n",
                 alpha, beta, gamma, horizon, evalDays);
 
-        // ── Step 1: Load daily drink counts from PostgreSQL ────────────────────
         DataLoader.DailyCounts data;
         try (Connection conn = DBConfig.getDataSource().getConnection()) {
             data = DataLoader.load(conn);
@@ -59,7 +58,6 @@ public class Main {
                 n, dates.get(0), dates.get(n - 1), drinkSeries.size());
         System.out.println("Drinks: " + drinkSeries.keySet());
 
-        // ── Step 2: Run TES for every drink, collect forecasts in memory ───────
         int trainEnd = n - evalDays;
         Map<String, double[]> evalForecasts   = new LinkedHashMap<>();
         Map<String, double[]> futureForecasts = new LinkedHashMap<>();
@@ -84,7 +82,6 @@ public class Main {
             }
         }
 
-        // ── Step 3: Write CSVs for Python visualization ────────────────────────
         Files.createDirectories(Path.of(outDir));
         Path evalPath   = Path.of(outDir, "eval.csv");
         Path futurePath = Path.of(outDir, "future.csv");
@@ -96,7 +93,6 @@ public class Main {
         System.out.println("  " + evalPath.toAbsolutePath());
         System.out.println("  " + futurePath.toAbsolutePath());
 
-        // ── Step 4: Map forecasts to ingredients and persist to PostgreSQL ─────
         System.out.println("\nRunning ingredient mapping (Phase 2)...");
         try (Connection conn = DBConfig.getDataSource().getConnection()) {
             IngredientMapper.run(conn, dates, drinkSeries,
@@ -107,8 +103,6 @@ public class Main {
 
         System.out.println("\nDone. Query ingredient_forecast in PostgreSQL for ingredient plots.");
     }
-
-    // ── CSV helpers ────────────────────────────────────────────────────────────
 
     private static void writeEvalCsv(Path path,
                                      List<LocalDate> dates,

@@ -1,0 +1,58 @@
+%% Template for ENG 401 reports
+%% by Robin Turner
+%% Adapted from the IEEE peer review template
+
+%
+% note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+
+\documentclass[peerreview]{IEEEtran}
+\usepackage{cite} % Tidies up citation numbers.
+\usepackage{url} % Provides better formatting of URLs.
+\usepackage[utf8]{inputenc} % Allows Turkish characters.
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables for horizontal lines
+\usepackage{graphicx}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor} % Corrects some bad hyphenation 
+
+
+
+\begin{document}
+%\begin{titlepage}
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Review: Coffee Ingredient Usage Forecasting Using
+MySQL, MongoDB, and Moving Average}
+
+
+% author names and affiliations
+\date{13.07.2026}
+
+% make the title area
+\maketitle
+
+\section{Summary Rating}
+4 - accept 
+
+\section{Strong points of the paper}
+\begin{enumerate}
+    \item Numerous relevant references
+    \item The introduction provides a good overview of the paper
+    \item Clear practical motivation
+    \item Clear and accessible language
+\end{enumerate}
+
+\section{Weak points of the paper}
+\begin{enumerate}
+    \item Why choose a simple MA over alternatives such as AR or exponential smoothing?
+    \item The graphics are not entirely clear: why was a window size of 7 chosen?
+          A concrete error metric would be helpful.
+\end{enumerate}
+
+
+
+\end{document}
+
+
